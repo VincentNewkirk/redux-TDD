@@ -24,8 +24,8 @@ describe('ACTIONS', () => {
   });
 });
 
-// describe('REDUCER', () => {
-//   it('should be exported correctly', () => {
-//     expect(reducer).toBeDefined();
-//   });
-// });
+describe('REDUCER', () => {
+  it('should be exported correctly', () => {
+    expect(reducer).toBeDefined();
+  });
+});
