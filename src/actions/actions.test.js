@@ -1,13 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import * as actions from './actions/actions';
-import reducer from './reducers/reducer';
-
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-});
+import * as actions from './actions';
 
 describe('ACTIONS', () => {
   it('should be exported correctly', () => {
@@ -60,18 +53,12 @@ describe('ACTIONS', () => {
       expect(actions.setVisibilityFilter).toBeDefined();
     });
     it('setVisibilityFilter should create an action to set the visibility filter', () => {
-      const filter = 'SHOW_ALL';
+      const filter = 'SHOW_COMPLETED';
       const expected = {
         type: actions.SET_VISIBILITY_FILTER,
         filter,
       };
       expect(actions.setVisibilityFilter(filter)).toEqual(expected);
     });
-  });
-});
-
-describe('REDUCER', () => {
-  it('should be exported correctly', () => {
-    expect(reducer).toBeDefined();
   });
 });
