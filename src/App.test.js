@@ -48,8 +48,24 @@ describe('ACTIONS', () => {
     it('toggleToDo action creator should exist', () => {
       expect(actions.toggleToDo).toBeDefined();
     });
+    it('toggleTodo should create an action to "mark" or toggle a todo', () => {
+      const index = 1;
+      const expected = {
+        type: actions.TOGGLE_TODO,
+        index
+      };
+      expect(actions.toggleToDo(index)).toEqual(expected);
+    });
     it('setVisibilityFilter action creator should exist', () => {
       expect(actions.setVisibilityFilter).toBeDefined();
+    });
+    it('setVisibilityFilter should create an action to set the visibility filter', () => {
+      const filter = 'SHOW_ALL';
+      const expected = {
+        type: actions.SET_VISIBILITY_FILTER,
+        filter,
+      };
+      expect(actions.setVisibilityFilter(filter)).toEqual(expected);
     });
   });
 });

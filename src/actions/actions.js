@@ -14,3 +14,17 @@ export const addToDo = (text) => {
     text,
   };
 };
+
+export const toggleToDo = (index) => {
+  return {
+    type: TOGGLE_TODO,
+    index
+  };
+};
+
+export const setVisibilityFilter = (filter) => {
+  return {
+    type: SET_VISIBILITY_FILTER,
+    filter
+  };
+};
