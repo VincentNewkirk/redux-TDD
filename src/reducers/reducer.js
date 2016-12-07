@@ -1,12 +1,19 @@
-import { VisibilityFilters } from '../actions/actions';
+import { VisibilityFilters, SET_VISIBILITY_FILTER } from '../actions/actions';
 
-const initialState = {
+export const initialState = {
   visibilityFilter: VisibilityFilters.SHOW_ALL,
   todos: [],
 };
 
 const reducer = (state = initialState, action) => {
-  return initialState;
+  switch (action && action.type) {
+    case SET_VISIBILITY_FILTER:
+      return {
+        visibilityFilter: action.filter,
+        todos: [...state.todos],
+      };
+  }
+  return state;
 };
 
 export default reducer;
