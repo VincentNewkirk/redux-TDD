@@ -28,11 +28,11 @@ describe('REDUCER', () => {
     const actual = reducer(initialState, { type: 'MAGIC_THING' });
     expect(actual).toEqual(expected);
   });
-  it('addToDo should add a task to the to do list', () => {
+  it('addToDo should add a task to the to do list. Tasks should have a key/value of text and completed', () => {
     const text = 'testing';
     const expected = {
       visibilityFilter: VisibilityFilters.SHOW_ALL,
-      todos: ['testing'],
+      todos: [{ 'text':'testing', 'completed':false }],
     };
     const actual = actions.addToDo(text);
     expect(expected).toEqual(reducer(initialState, actual));
