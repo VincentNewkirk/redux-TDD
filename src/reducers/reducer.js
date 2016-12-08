@@ -24,6 +24,17 @@ const reducer = (state = initialState, action) => {
           }
         ]
       };
+    case TOGGLE_TODO:
+      const newState = state.todos.map((todo, i) => {
+        if (i === action.index) {
+          todo['completed'] = !todo['completed'];
+        }
+        return todo;
+      });
+      return {
+        visibilityFilter: state.visibilityFilter,
+        todos: newState,
+      };
   }
   return state;
 };

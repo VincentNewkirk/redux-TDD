@@ -38,7 +38,7 @@ describe('REDUCER', () => {
     expect(actual).toEqual(expected);
   });
   it('toggleToDo should find a todo by the index argument passed and change its completed value', () => {
-    const index = 2;
+    const index = 1;
     const expected = {
       visibilityFilter: VisibilityFilters.SHOW_ALL,
       todos: [
