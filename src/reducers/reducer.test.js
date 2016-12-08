@@ -34,7 +34,27 @@ describe('REDUCER', () => {
       visibilityFilter: VisibilityFilters.SHOW_ALL,
       todos: [{ 'text':'testing', 'completed':false }],
     };
-    const actual = actions.addToDo(text);
-    expect(expected).toEqual(reducer(initialState, actual));
+    const actual = reducer(initialState, actions.addToDo(text));
+    expect(actual).toEqual(expected);
+  });
+  it('toggleToDo should find a todo by the index argument passed and change its completed value', () => {
+    const index = 2;
+    const expected = {
+      visibilityFilter: VisibilityFilters.SHOW_ALL,
+      todos: [
+      {
+        'text':'testing',
+        'completed': false
+      },
+      {
+        'text':'completed',
+        'completed': true,
+      }
+      ],
+    };
+    const firstToDo = reducer(initialState, actions.addToDo('testing'));
+    const secondToDo = reducer(firstToDo, actions.addToDo('completed'));
+    const actual = reducer(secondToDo, actions.toggleToDo(index));
+    expect(actual).toEqual(reducer(expected));
   });
 });

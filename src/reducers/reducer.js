@@ -15,6 +15,7 @@ const reducer = (state = initialState, action) => {
     case ADD_TODO:
       return {
         visibilityFilter: state.visibilityFilter,
+
         todos: [
           ...state.todos,
           {
