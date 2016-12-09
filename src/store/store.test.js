@@ -13,8 +13,7 @@ describe('STORE', () => {
       todos: [{ 'text': 'test', 'completed': false }],
     };
     const text = 'test';
-    const actual = store.dispatch(actions.addToDo(text));
-    console.log(actual);
+    store.dispatch(actions.addToDo(text));
     expect(store.getState()).toEqual(expected);
   });
 });
