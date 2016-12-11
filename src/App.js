@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  componentWillMount(state) {
+    console.log(state);
+  }
   render() {
     return (
       <div className="App">
@@ -18,4 +22,12 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    visibilityFilter: state.VisibilityFilter,
+    todos: state.todos
+  }
+};
+
+export default connect(
+  mapStateToProps)(App)
