@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import logo from './logo.svg';
 import './App.css';
+import { addToDo, toggleToDo, setVisibilityFilter } from './actions/actions';
 
 class App extends Component {
   componentWillMount(state) {
@@ -29,5 +30,21 @@ const mapStateToProps = (state) => {
   }
 };
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    toggle: (id) => {
+      dispatch(toggleToDo(id))
+    },
+    addToDo: (text) => {
+      dispatch(addToDo(text))
+    },
+    setFilter: (filter) => {
+      dispatch(setVisibilityFilter(filter))
+    }
+  }
+};
+
 export default connect(
-  mapStateToProps)(App)
+  mapStateToProps,
+  mapDispatchToProps
+  )(App)
