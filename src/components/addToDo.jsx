@@ -10,7 +10,6 @@ class ToDoForm extends React.Component {
 
   textChange(event) {
     this.textInput = event.target.value;
-    console.log(this.textInput);
   }
 
   handleSubmit(event) {

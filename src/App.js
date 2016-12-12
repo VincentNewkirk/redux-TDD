@@ -5,14 +5,24 @@ import { addToDo, toggleToDo, setVisibilityFilter } from './actions/actions';
 import ToDoForm from './components/addToDo';
 
 class App extends Component {
-  componentWillMount(state) {
-    console.log(this.props);
+  constructor(props) {
+    super(props);
+    this.renderList = this.renderList.bind(this);
+  }
+
+  renderList() {
+    return this.props.todos.map((todo, index) => (
+      <li key={index}>
+        <ul>{todo.text}</ul>
+      </li>
+    ))
   }
 
   render() {
     return (
       <div className="App">
         <h1>To-Do List:</h1>
+        {this.renderList()}
         <ToDoForm addToDo={this.props.addToDo} />
       </div>
     );
