@@ -1,23 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import logo from './logo.svg';
 import './App.css';
 import { addToDo, toggleToDo, setVisibilityFilter } from './actions/actions';
 
 class App extends Component {
   componentWillMount(state) {
-    console.log(state);
+    console.log(this.props);
   }
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <h1>To-Do List:</h1>
       </div>
     );
   }
@@ -25,7 +18,7 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    visibilityFilter: state.VisibilityFilter,
+    visibilityFilter: state.visibilityFilter,
     todos: state.todos
   }
 };
